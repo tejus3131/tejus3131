@@ -11,8 +11,6 @@
 
 - 📄 Know about my experiences [Linkedin](https://www.linkedin.com/in/tejus-gupta-323392237/)
 
-- ![WebDevWebsiteDevelopmentGIF](https://github.com/tejus3131/tejus3131/assets/109463410/212da2f6-9ead-4d39-aa5f-4d6b50a97ba9)
-
 - 😎 Check out my [Portfolio](https://tejus3131.github.io)
 
 - ⚡ Fun fact **I love 🎶MUSIC🎶**
@@ -29,3 +27,7 @@
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=tejus3131&show_icons=true&locale=en&layout=compact" alt="tejus3131" /></p>
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=tejus3131&show_icons=true&locale=en" alt="tejus3131" /></p>
+
+
+
+- ![WebDevWebsiteDevelopmentGIF](https://github.com/tejus3131/tejus3131/assets/109463410/212da2f6-9ead-4d39-aa5f-4d6b50a97ba9)
