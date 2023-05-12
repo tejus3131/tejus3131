@@ -3,13 +3,17 @@
 
 - 🌱 I’m currently learning **C++.**
 
-- 👨‍💻 All of my projects are available at [https://www.linkedin.com/in/tejus-gupta-323392237/](https://www.linkedin.com/in/tejus-gupta-323392237/)
+- 👨‍💻 All of my projects are available at [Github](https://www.github.com/tejus3131/)
 
 - 💬 Ask me about **basics of Python and Web development.**
 
-- 📫 How to reach me **tejusgupta.dev@gmail.com**
+- 📫 How to reach me **tejus3131@gmail.com**
 
-- 📄 Know about my experiences [https://www.linkedin.com/in/tejus-gupta-323392237/](https://www.linkedin.com/in/tejus-gupta-323392237/)
+- 📄 Know about my experiences [Linkedin](https://www.linkedin.com/in/tejus-gupta-323392237/)
+
+- ![WebDevWebsiteDevelopmentGIF](https://github.com/tejus3131/tejus3131/assets/109463410/212da2f6-9ead-4d39-aa5f-4d6b50a97ba9)
+
+- 😎 Check out my [Portfolio](https://tejus3131.github.io)
 
 - ⚡ Fun fact **I love 🎶MUSIC🎶**
 
