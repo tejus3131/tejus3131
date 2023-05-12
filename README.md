@@ -30,4 +30,4 @@
 
 
 
-- ![WebDevWebsiteDevelopmentGIF](https://github.com/tejus3131/tejus3131/assets/109463410/212da2f6-9ead-4d39-aa5f-4d6b50a97ba9)
+![WebDevWebsiteDevelopmentGIF](https://github.com/tejus3131/tejus3131/assets/109463410/212da2f6-9ead-4d39-aa5f-4d6b50a97ba9)
