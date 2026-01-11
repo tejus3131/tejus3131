@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mocha">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tejus Gupta — Software Engineer</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Tejus Gupta — Software Engineer focused on systems, developer tooling, and AI agents. Building tools that remove friction from everyday developer workflows.">
+    <meta name="keywords"
+        content="Tejus Gupta, Software Engineer, AI Engineer, Developer Tools, uAgents, Fetch.ai, Python, Rust, CLI Tools, AI Agents">
+    <meta name="author" content="Tejus Gupta">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tejusgupta.dev/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tejusgupta.dev/">
+    <meta property="og:title" content="Tejus Gupta — Software Engineer">
+    <meta property="og:description"
+        content="Software Engineer focused on systems, developer tooling, and AI agents. Building tools that remove friction from everyday developer workflows.">
+    <meta property="og:image" content="https://tejusgupta.dev/og-image.png">
+    <meta property="og:site_name" content="Tejus Gupta">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tejusgupta.dev/">
+    <meta name="twitter:title" content="Tejus Gupta — Software Engineer">
+    <meta name="twitter:description"
+        content="Software Engineer focused on systems, developer tooling, and AI agents. Building tools that remove friction from everyday developer workflows.">
+    <meta name="twitter:image" content="https://tejusgupta.dev/og-image.png">
+    <meta name="twitter:creator" content="@tejus3131">
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#1e1e2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tejus Gupta",
+        "url": "https://tejusgupta.dev",
+        "jobTitle": "Software Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Fetch.ai"
+        },
+        "sameAs": [
+            "https://github.com/tejus3131",
+            "https://www.linkedin.com/in/tejus3131/",
+            "https://x.com/tejus3131",
+            "https://dev.to/tejus3131"
+        ],
+        "email": "hello@tejusgupta.dev",
+        "description": "Software Engineer focused on systems, developer tooling, and AI agents."
+    }
+    </script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #1e1e2e;
+            --text-primary: #cdd6f4;
+            --text-secondary: #a6adc8;
+            --accent: #89b4fa;
+            --accent-hover: #b4befe;
+            --border: #313244;
+            --card-bg: rgba(137, 180, 250, 0.05);
+        }
+
+        [data-theme="macchiato"] {
+            --bg: #24273a;
+            --text-primary: #cad3f5;
+            --text-secondary: #a5adcb;
+            --accent: #8aadf4;
+            --accent-hover: #b7bdf8;
+            --border: #363a4f;
+            --card-bg: rgba(138, 173, 244, 0.05);
+        }
+
+        [data-theme="frappe"] {
+            --bg: #303446;
+            --text-primary: #c6d0f5;
+            --text-secondary: #a5adce;
+            --accent: #8caaee;
+            --accent-hover: #babbf1;
+            --border: #414559;
+            --card-bg: rgba(140, 170, 238, 0.05);
+        }
+
+        [data-theme="latte"] {
+            --bg: #eff1f5;
+            --text-primary: #4c4f69;
+            --text-secondary: #6c6f85;
+            --accent: #1e66f5;
+            --accent-hover: #04a5e5;
+            --border: #dce0e8;
+            --card-bg: rgba(30, 102, 245, 0.03);
+        }
+
+        [data-theme="gruvbox-dark"] {
+            --bg: #282828;
+            --text-primary: #ebdbb2;
+            --text-secondary: #a89984;
+            --accent: #83a598;
+            --accent-hover: #8ec07c;
+            --border: #3c3836;
+            --card-bg: rgba(131, 165, 152, 0.05);
+        }
+
+        [data-theme="gruvbox-light"] {
+            --bg: #fbf1c7;
+            --text-primary: #3c3836;
+            --text-secondary: #665c54;
+            --accent: #076678;
+            --accent-hover: #427b58;
+            --border: #d5c4a1;
+            --card-bg: rgba(7, 102, 120, 0.03);
+        }
+
+        [data-theme="nord"] {
+            --bg: #2e3440;
+            --text-primary: #eceff4;
+            --text-secondary: #d8dee9;
+            --accent: #88c0d0;
+            --accent-hover: #8fbcbb;
+            --border: #3b4252;
+            --card-bg: rgba(136, 192, 208, 0.05);
+        }
+
+        [data-theme="tokyo-night"] {
+            --bg: #1a1b26;
+            --text-primary: #c0caf5;
+            --text-secondary: #9aa5ce;
+            --accent: #7aa2f7;
+            --accent-hover: #bb9af7;
+            --border: #24283b;
+            --card-bg: rgba(122, 162, 247, 0.05);
+        }
+
+        [data-theme="one-dark"] {
+            --bg: #282c34;
+            --text-primary: #abb2bf;
+            --text-secondary: #5c6370;
+            --accent: #61afef;
+            --accent-hover: #c678dd;
+            --border: #3e4451;
+            --card-bg: rgba(97, 175, 239, 0.05);
+        }
+
+        [data-theme="one-light"] {
+            --bg: #fafafa;
+            --text-primary: #383a42;
+            --text-secondary: #696c77;
+            --accent: #4078f2;
+            --accent-hover: #a626a4;
+            --border: #e5e5e6;
+            --card-bg: rgba(64, 120, 242, 0.03);
+        }
+
+        [data-theme="dracula"] {
+            --bg: #282a36;
+            --text-primary: #f8f8f2;
+            --text-secondary: #6272a4;
+            --accent: #bd93f9;
+            --accent-hover: #ff79c6;
+            --border: #44475a;
+            --card-bg: rgba(189, 147, 249, 0.05);
+        }
+
+        [data-theme="everforest"] {
+            --bg: #2d353b;
+            --text-primary: #d3c6aa;
+            --text-secondary: #859289;
+            --accent: #a7c080;
+            --accent-hover: #83c092;
+            --border: #3d484d;
+            --card-bg: rgba(167, 192, 128, 0.05);
+        }
+
+        [data-theme="solarized-dark"] {
+            --bg: #002b36;
+            --text-primary: #839496;
+            --text-secondary: #586e75;
+            --accent: #268bd2;
+            --accent-hover: #2aa198;
+            --border: #073642;
+            --card-bg: rgba(38, 139, 210, 0.05);
+        }
+
+        [data-theme="solarized-light"] {
+            --bg: #fdf6e3;
+            --text-primary: #657b83;
+            --text-secondary: #93a1a1;
+            --accent: #268bd2;
+            --accent-hover: #2aa198;
+            --border: #eee8d5;
+            --card-bg: rgba(38, 139, 210, 0.03);
+        }
+
+        [data-theme="rose-pine"] {
+            --bg: #191724;
+            --text-primary: #e0def4;
+            --text-secondary: #908caa;
+            --accent: #c4a7e7;
+            --accent-hover: #ebbcba;
+            --border: #26233a;
+            --card-bg: rgba(196, 167, 231, 0.05);
+        }
+
+        [data-theme="monokai"] {
+            --bg: #272822;
+            --text-primary: #f8f8f2;
+            --text-secondary: #75715e;
+            --accent: #66d9ef;
+            --accent-hover: #a6e22e;
+            --border: #3e3d32;
+            --card-bg: rgba(102, 217, 239, 0.05);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        html::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 17px;
+            transition: all 0.3s ease;
+        }
+
+        *::-webkit-scrollbar {
+            display: none;
+        }
+
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            margin-bottom: 200px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+            scroll-margin-top: 40px;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        section:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        section:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        section:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        section:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        section:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .hero {
+            padding-top: 140px;
+            margin-bottom: 200px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero .role {
+            font-size: 21px;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+            max-width: 520px;
+        }
+
+        .hero .statement {
+            font-size: 19px;
+            max-width: 600px;
+            margin-bottom: 60px;
+            padding-left: 24px;
+            border-left: 2px solid var(--accent);
+        }
+
+        .hero .links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .hero .links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .hero .links a:hover {
+            color: var(--accent);
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 60px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        .section-heading:hover {
+            color: var(--accent);
+        }
+
+        .section-heading:hover .share-btn {
+            opacity: 1;
+        }
+
+        .share-btn {
+            opacity: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 18px;
+            padding: 4px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .share-btn:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg);
+            border: 1px solid var(--accent);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--accent);
+            z-index: 3000;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .philosophy p {
+            margin-bottom: 28px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .project {
+            margin-bottom: 100px;
+            scroll-margin-top: 40px;
+        }
+
+        .project h3 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .project-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        .project-heading:hover {
+            color: var(--accent);
+        }
+
+        .project-heading:hover .share-btn {
+            opacity: 1;
+        }
+
+        .project .tagline {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .project-content {
+            display: grid;
+            gap: 32px;
+        }
+
+        .project-block {
+            padding: 24px;
+            background: var(--card-bg);
+            border-radius: 4px;
+            border-left: 2px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .project-block h4 {
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .project-block p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .project .tech-list {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 2;
+        }
+
+        .project .project-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .project .project-links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .project .project-links a:hover {
+            color: var(--accent-hover);
+        }
+
+        .build-section p {
+            margin-bottom: 28px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .build-section ol {
+            margin: 40px 0;
+            padding-left: 0;
+            list-style: none;
+            counter-reset: c;
+        }
+
+        .build-section li {
+            margin-bottom: 16px;
+            font-size: 18px;
+            padding-left: 48px;
+            position: relative;
+            counter-increment: c;
+        }
+
+        .build-section li::before {
+            content: counter(c);
+            position: absolute;
+            left: 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--accent);
+        }
+
+        .now-item {
+            margin-bottom: 48px;
+            padding: 24px;
+            background: var(--card-bg);
+            border-radius: 4px;
+            border-left: 2px solid var(--border);
+        }
+
+        .now-item strong {
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .now-item p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        footer {
+            padding: 100px 0 140px;
+            border-top: 1px solid var(--border);
+        }
+
+        footer .contact a {
+            font-size: 24px;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer .contact a:hover {
+            color: var(--accent-hover);
+        }
+
+        footer .signoff {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-top: 40px;
+            max-width: 520px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-container {
+            position: fixed;
+            top: 32px;
+            right: 32px;
+            z-index: 1000;
+        }
+
+        .hamburger-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1001;
+        }
+
+        .hamburger-btn:hover {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .hamburger-line {
+            width: 20px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .hamburger-btn.open .hamburger-line:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger-btn.open .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger-btn.open .hamburger-line:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .hamburger-menu {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 8px;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px) scale(0.95);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .hamburger-menu.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .menu-item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-primary);
+        }
+
+        .menu-item:hover {
+            background: var(--card-bg);
+            color: var(--accent);
+        }
+
+        .menu-icon {
+            font-size: 18px;
+        }
+
+        .menu-text {
+            flex: 1;
+            text-align: left;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .menu-shortcut {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            padding: 2px 6px;
+            background: var(--card-bg);
+            border-radius: 4px;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .modal-overlay.open .modal {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-header h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent);
+        }
+
+        .search-box::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .modal-body {
+            overflow-y: auto;
+            padding: 12px;
+        }
+
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 12px;
+        }
+
+        .theme-card {
+            padding: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .theme-card:hover {
+            border-color: var(--accent);
+            background: rgba(var(--accent), 0.1);
+            transform: translateY(-2px);
+        }
+
+        .theme-card.active {
+            border-color: var(--accent);
+            background: var(--card-bg);
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .theme-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .theme-emoji {
+            font-size: 24px;
+        }
+
+        .theme-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .theme-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .theme-colors {
+            display: flex;
+            gap: 6px;
+        }
+
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .nav-list {
+            list-style: none;
+        }
+
+        .nav-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+        }
+
+        .nav-item:hover,
+        .nav-item.focused {
+            background: var(--card-bg);
+            border-left-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .nav-item.sub {
+            padding-left: 40px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .nav-item.sub.focused,
+        .nav-item.sub:hover {
+            color: var(--accent);
+        }
+
+        .help-content {
+            padding: 24px;
+            line-height: 1.8;
+        }
+
+        .help-section {
+            margin-bottom: 32px;
+        }
+
+        .help-section h4 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+
+        .help-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .help-kbd {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 28px;
+            padding: 0 10px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .help-desc {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .help-tips {
+            margin-top: 24px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            border-left: 2px solid var(--accent);
+        }
+
+        .help-tips h4 {
+            margin-bottom: 12px;
+        }
+
+        .help-tips p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .help-tips p:last-child {
+            margin-bottom: 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 24px;
+            line-height: 1;
+            transition: color 0.2s;
+            z-index: 10;
+        }
+
+        .close-btn:hover {
+            color: var(--accent);
+        }
+
+        .random-hint {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 640px) {
+            .hamburger-container {
+                top: 24px;
+                right: 24px;
+            }
+
+            .hamburger-btn {
+                width: 44px;
+                height: 44px;
+            }
+
+            .hamburger-menu {
+                right: 0;
+                min-width: 160px;
+            }
+
+            .hero {
+                padding-top: 100px;
+                margin-bottom: 140px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero .role {
+                font-size: 18px;
+            }
+
+            .hero .statement {
+                font-size: 17px;
+                padding-left: 16px;
+            }
+
+            h2 {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+
+            section {
+                margin-bottom: 140px;
+            }
+
+            .project {
+                margin-bottom: 80px;
+            }
+
+            .project h3 {
+                font-size: 26px;
+            }
+
+            footer {
+                padding: 80px 0 100px;
+            }
+
+            footer .contact a {
+                font-size: 20px;
+            }
+
+            .modal-header h3 {
+                font-size: 20px;
+            }
+
+            .theme-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hamburger-container">
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <button class="menu-item" id="navBtn">
+                <span class="menu-icon">📑</span>
+                <span class="menu-text">Menu</span>
+                <span class="menu-shortcut">M</span>
+            </button>
+            <button class="menu-item" id="themeBtn">
+                <span class="menu-icon">🎨</span>
+                <span class="menu-text">Theme</span>
+                <span class="menu-shortcut">T</span>
+            </button>
+            <button class="menu-item" id="helpBtn">
+                <span class="menu-icon">❓</span>
+                <span class="menu-text">Help</span>
+                <span class="menu-shortcut">H</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Theme Modal -->
+    <div class="modal-overlay" id="themeModal">
+        <div class="modal">
+            <button class="close-btn" id="themeClose">×</button>
+            <div class="modal-header">
+                <h3>Choose Your Theme</h3>
+            </div>
+            <div class="modal-body">
+                <div class="theme-grid" id="themeGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Modal -->
+    <div class="modal-overlay" id="navModal">
+        <div class="modal">
+            <button class="close-btn" id="navClose">×</button>
+            <div class="modal-header">
+                <h3>Navigation</h3>
+            </div>
+            <div class="modal-body">
+                <ul class="nav-list" id="navList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal-overlay" id="helpModal">
+        <div class="modal">
+            <button class="close-btn" id="helpClose">×</button>
+            <div class="modal-header">
+                <h3>Keyboard Shortcuts</h3>
+            </div>
+            <div class="modal-body">
+                <div class="help-content">
+                    <div class="help-section">
+                        <h4>General</h4>
+                        <div class="help-row">
+                            <span class="help-kbd">H</span>
+                            <span class="help-desc">Open this help menu</span>
+                        </div>
+                        <div class="help-row">
+                            <span class="help-kbd">S</span>
+                            <span class="help-desc">Copy website URL to clipboard</span>
+                        </div>
+                        <div class="help-row">
+                            <span class="help-kbd">Esc</span>
+                            <span class="help-desc">Close any open modal</span>
+                        </div>
+                    </div>
+                    <div class="help-section">
+                        <h4>Navigation</h4>
+                        <div class="help-row">
+                            <span class="help-kbd">M</span>
+                            <span class="help-desc">Open navigation menu</span>
+                        </div>
+                        <div class="help-row">
+                            <span class="help-kbd">↑</span>
+                            <span class="help-kbd">↓</span>
+                            <span class="help-desc">Navigate menu items</span>
+                        </div>
+                        <div class="help-row">
+                            <span class="help-kbd">Enter</span>
+                            <span class="help-desc">Select focused item</span>
+                        </div>
+                    </div>
+                    <div class="help-section">
+                        <h4>Themes</h4>
+                        <div class="help-row">
+                            <span class="help-kbd">T</span>
+                            <span class="help-desc">Open theme picker</span>
+                        </div>
+                        <div class="help-row">
+                            <span class="help-kbd">R</span>
+                            <span class="help-desc">Select random theme</span>
+                        </div>
+                        <div class="help-row">
+                            <span class="help-kbd">↑</span>
+                            <span class="help-kbd">↓</span>
+                            <span class="help-desc">Scroll through themes</span>
+                        </div>
+                    </div>
+                    <div class="help-tips">
+                        <h4>Tips</h4>
+                        <p>• Your theme choice is saved automatically</p>
+                        <p>• Click headings to copy shareable links</p>
+                        <p>• URL updates as you scroll through sections</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="hero" id="home">
+            <h1>Tejus Gupta</h1>
+            <div class="role">Software Engineer focused on systems, developer tooling, and AI agents</div>
+            <div class="statement">Software development is an art that requires technical depth — not a stressful job,
+                but a craft I genuinely enjoy practicing.</div>
+            <div class="links">
+                <a href="mailto:hello@tejusgupta.dev">hello@tejusgupta.dev</a>
+                <a href="https://github.com/tejus3131">GitHub</a>
+                <a href="https://www.linkedin.com/in/tejus3131/">LinkedIn</a>
+                <a href="https://x.com/tejus3131">X</a>
+                <a href="https://dev.to/tejus3131">Blog</a>
+            </div>
+        </section>
+
+        <section class="philosophy" id="philosophy">
+            <h2>
+                <a href="#philosophy" class="section-heading" onclick="copyToClipboard('philosophy', event)">
+                    Philosophy
+                    <button class="share-btn" aria-label="Copy link">🔗</button>
+                </a>
+            </h2>
+            <p>I enjoy building things and understanding how they work at a low level. I like breaking large systems
+                into smaller, solvable problems and making them work reliably. I especially enjoy building tools that
+                remove friction from everyday developer workflows.</p>
+            <p>When I build, I value quality above everything — in code, in user experience, and in long-term
+                maintainability. I care deeply about clean setups, automation, and making things feel "done", not just
+                "working".</p>
+            <p>I'm most excited by recurring, real-world problems — the kind where writing a tool once can save hours
+                every day.</p>
+        </section>
+
+        <section class="projects" id="projects">
+            <h2>
+                <a href="#projects" class="section-heading" onclick="copyToClipboard('projects', event)">
+                    Selected Projects
+                    <button class="share-btn" aria-label="Copy link">🔗</button>
+                </a>
+            </h2>
+            <div class="project" id="create-agentverse-agent">
+                <h3>
+                    <a href="#create-agentverse-agent" class="project-heading"
+                        onclick="copyToClipboard('create-agentverse-agent', event)">
+                        create-agentverse-agent
+                        <button class="share-btn" aria-label="Copy link">🔗</button>
+                    </a>
+                </h3>
+                <div class="tagline">A CLI tool that scaffolds production-ready uAgents projects with
+                    Agentverse-compatible defaults.</div>
+                <div class="project-content">
+                    <div class="project-block">
+                        <h4>Why I built it</h4>
+                        <p>I was repeatedly writing the same setup code when creating new agents. This tool removes that
+                            friction and provides a clean, consistent starting point for serious agent development.</p>
+                    </div>
+                    <div class="project-block">
+                        <h4>What makes it interesting</h4>
+                        <p>Generates production-focused scaffolds, not demo templates. Built-in async patterns, logging,
+                            health checks, and quota handling. Designed around real agent development workflows.</p>
+                    </div>
+                    <div class="project-block">
+                        <h4>Tech Stack</h4>
+                        <div class="tech-list">Python · CLI tooling · Jinja templating · Async-first design · Docker &
+                            Docker Compose · Agentverse / uAgents ecosystem</div>
+                    </div>
+                </div>
+                <div class="project-links"><a href="https://github.com/tejus3131/create-agentverse-agent">GitHub</a><a
+                        href="https://create-agentverse-agent.tech">Website</a></div>
+            </div>
+
+            <div class="project" id="bhasha">
+                <h3>
+                    <a href="#bhasha" class="project-heading" onclick="copyToClipboard('bhasha', event)">
+                        Bhasha
+                        <button class="share-btn" aria-label="Copy link">🔗</button>
+                    </a>
+                </h3>
+                <div class="tagline">A toy programming language interpreter using Hindi keywords.</div>
+                <div class="project-content">
+                    <div class="project-block">
+                        <h4>Why I built it</h4>
+                        <p>To explore language design and interpreter internals while experimenting with non-English
+                            syntax and semantics.</p>
+                    </div>
+                    <div class="project-block">
+                        <h4>What makes it interesting</h4>
+                        <p>Covers core interpreter concepts: parsing, evaluation, execution. Uses Hindi keywords for
+                            control flow and expressions. A hands-on way to understand how languages actually work.</p>
+                    </div>
+                    <div class="project-block">
+                        <h4>Tech Stack</h4>
+                        <div class="tech-list">Rust</div>
+                    </div>
+                </div>
+                <div class="project-links"><a href="https://github.com/tejus3131/bhasha">GitHub</a></div>
+            </div>
+
+            <div class="project" id="passcrypt">
+                <h3>
+                    <a href="#passcrypt" class="project-heading" onclick="copyToClipboard('passcrypt', event)">
+                        PassCrypt
+                        <button class="share-btn" aria-label="Copy link">🔗</button>
+                    </a>
+                </h3>
+                <div class="tagline">A secure, CLI-based password manager.</div>
+                <div class="project-content">
+                    <div class="project-block">
+                        <h4>Why I built it</h4>
+                        <p>I wanted a reliable, portable password manager that fits naturally into a terminal-centric
+                            workflow.</p>
+                    </div>
+                    <div class="project-block">
+                        <h4>What makes it interesting</h4>
+                        <p>Uses strong symmetric encryption (Fernet). Supports password generation, import/export, and
+                            master password protection. Comes with a dedicated documentation site.</p>
+                    </div>
+                    <div class="project-block">
+                        <h4>Tech Stack</h4>
+                        <div class="tech-list">Python · Cryptography (Fernet) · CLI tooling · Sphinx documentation</div>
+                    </div>
+                </div>
+                <div class="project-links"><a href="https://github.com/tejus3131/passcrypt">GitHub</a><a
+                        href="https://tejus3131.github.io/passcrypt/">Docs</a></div>
+            </div>
+
+            <div class="project" id="flownet">
+                <h3>
+                    <a href="#flownet" class="project-heading" onclick="copyToClipboard('flownet', event)">
+                        FlowNet
+                        <button class="share-btn" aria-label="Copy link">🔗</button>
+                    </a>
+                </h3>
+                <div class="tagline">A decentralized delivery network powered by autonomous AI agents.</div>
+                <div class="project-content">
+                    <div class="project-block">
+                        <h4>Why I built it</h4>
+                        <p>To experiment with multi-agent systems, negotiation workflows, and real-world automation
+                            problems like logistics and coordination.</p>
+                    </div>
+                    <div class="project-block">
+                        <h4>What makes it interesting</h4>
+                        <p>Combines AI assistants with autonomous agents. Designed for decentralized, multi-agent
+                            interaction. Bridges AI reasoning with marketplace-style workflows.</p>
+                    </div>
+                    <div class="project-block">
+                        <h4>Tech Stack</h4>
+                        <div class="tech-list">Python · AI / LLMs · Async networking · API servers · Databases and
+                            queues</div>
+                    </div>
+                </div>
+                <div class="project-links"><a href="https://github.com/tejus3131/FlowNet">GitHub</a></div>
+            </div>
+
+            <div class="project" id="uagents-composio-adapter">
+                <h3>
+                    <a href="#uagents-composio-adapter" class="project-heading"
+                        onclick="copyToClipboard('uagents-composio-adapter', event)">
+                        uagents-composio-adapter
+                        <button class="share-btn" aria-label="Copy link">🔗</button>
+                    </a>
+                </h3>
+                <div class="tagline">A production-ready adapter connecting uAgents with Composio and LangChain
+                    ecosystems.</div>
+                <div class="project-content">
+                    <div class="project-block">
+                        <h4>Why I built it</h4>
+                        <p>To enable full async integration between uAgents, Composio tools, and LangChain-based agents
+                            — including authentication and orchestration.</p>
+                    </div>
+                    <div class="project-block">
+                        <h4>What makes it interesting</h4>
+                        <p>Brings multiple agent ecosystems together. Async-first, orchestration-focused design.
+                            Actively versioned and production-oriented.</p>
+                    </div>
+                    <div class="project-block">
+                        <h4>Tech Stack</h4>
+                        <div class="tech-list">Python (async) · uAgents · LangChain · Composio APIs</div>
+                    </div>
+                </div>
+                <div class="project-links"><a href="https://github.com/tejus3131/uagents-composio-adapter">GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="build-section" id="how-i-build">
+            <h2>
+                <a href="#how-i-build" class="section-heading" onclick="copyToClipboard('how-i-build', event)">
+                    How I Build
+                    <button class="share-btn" aria-label="Copy link">🔗</button>
+                </a>
+            </h2>
+            <p>For any new project, I start with a solid foundation: CI/CD, testing, linting, formatting, and pre-commit
+                hooks — before writing application logic. Once the foundation is ready, I dive deep into research,
+                explore similar solutions, choose the right tools, and define a clear roadmap.</p>
+            <p>My priorities are simple:</p>
+            <ol>
+                <li>It must work correctly</li>
+                <li>It should be performant</li>
+                <li>It should be readable</li>
+                <li>It must be well-documented</li>
+            </ol>
+            <p>A non-negotiable for me is user experience — every tool I build aims to feel easy and natural to use.</p>
+        </section>
+
+        <section class="now-section" id="now">
+            <h2>
+                <a href="#now" class="section-heading" onclick="copyToClipboard('now', event)">
+                    Now
+                    <button class="share-btn" aria-label="Copy link">🔗</button>
+                </a>
+            </h2>
+            <div class="now-item"><strong>Currently learning</strong>
+                <p>Networking concepts for CLI tools — custom protocols, relay servers, and peer-to-peer communication.
+                </p>
+            </div>
+            <div class="now-item"><strong>Currently experimenting with</strong>
+                <p>Building CLI tools to automate daily workflows and fine-tuning my Linux environment with custom
+                    aliases, scripts, and shortcuts.</p>
+            </div>
+            <div class="now-item"><strong>Work</strong>
+                <p>Currently working as an AI Engineer at Fetch.ai, building AI agents using frameworks like Google ADK,
+                    OpenAI Agents SDK, LangChain, and CrewAI.</p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="contact"><a href="mailto:hello@tejusgupta.dev">hello@tejusgupta.dev</a></div>
+            <div class="signoff">Everything I build is not just technology — it's something I craft.</div>
+        </footer>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+
+        const defaultTheme = 'mocha';
+
+        const themes = [
+            { id: 'mocha', emoji: '☕', name: 'Catppuccin Mocha', desc: 'Warm, pastel, modern', colors: ['#89b4fa', '#cba6f7', '#f5c2e7', '#94e2d5'] },
+            { id: 'macchiato', emoji: '☕', name: 'Catppuccin Macchiato', desc: 'Warm, pastel, modern', colors: ['#8aadf4', '#c6a0f6', '#f5bde6', '#8bd5ca'] },
+            { id: 'frappe', emoji: '☕', name: 'Catppuccin Frappé', desc: 'Warm, pastel, modern', colors: ['#8caaee', '#ca9ee6', '#f4b8e4', '#81c8be'] },
+            { id: 'latte', emoji: '☕', name: 'Catppuccin Latte', desc: 'Warm, pastel, modern (light)', colors: ['#1e66f5', '#8839ef', '#ea76cb', '#04a5e5'] },
+            { id: 'dracula', emoji: '🧛', name: 'Dracula', desc: 'High-contrast, bold, night-focused', colors: ['#bd93f9', '#ff79c6', '#8be9fd', '#50fa7b'] },
+            { id: 'nord', emoji: '❄️', name: 'Nord', desc: 'Cool, minimal, arctic', colors: ['#88c0d0', '#81a1c1', '#5e81ac', '#8fbcbb'] },
+            { id: 'gruvbox-dark', emoji: '🐻', name: 'Gruvbox Dark', desc: 'Warm, retro, earthy', colors: ['#83a598', '#8ec07c', '#fabd2f', '#fb4934'] },
+            { id: 'gruvbox-light', emoji: '🐻', name: 'Gruvbox Light', desc: 'Warm, retro, earthy (light)', colors: ['#076678', '#427b58', '#b57614', '#9d0006'] },
+            { id: 'tokyo-night', emoji: '🌃', name: 'Tokyo Night', desc: 'Neon city nights, modern', colors: ['#7aa2f7', '#bb9af7', '#7dcfff', '#9ece6a'] },
+            { id: 'one-dark', emoji: '⚛️', name: 'One Dark', desc: 'Neutral, professional', colors: ['#61afef', '#c678dd', '#98c379', '#e06c75'] },
+            { id: 'one-light', emoji: '⚛️', name: 'One Light', desc: 'Neutral, professional (light)', colors: ['#4078f2', '#a626a4', '#50a14f', '#e45649'] },
+            { id: 'everforest', emoji: '🌲', name: 'Everforest', desc: 'Soft green, nature-focused', colors: ['#a7c080', '#83c092', '#dbbc7f', '#e67e80'] },
+            { id: 'solarized-dark', emoji: '🌅', name: 'Solarized Dark', desc: 'Scientifically balanced contrast', colors: ['#268bd2', '#2aa198', '#859900', '#b58900'] },
+            { id: 'solarized-light', emoji: '🌅', name: 'Solarized Light', desc: 'Scientifically balanced contrast (light)', colors: ['#268bd2', '#2aa198', '#859900', '#b58900'] },
+            { id: 'rose-pine', emoji: '🧊', name: 'Rosé Pine', desc: 'Muted, cozy, elegant', colors: ['#c4a7e7', '#ebbcba', '#f6c177', '#9ccfd8'] },
+            { id: 'monokai', emoji: '🖤', name: 'Monokai', desc: 'Classic, high contrast', colors: ['#66d9ef', '#a6e22e', '#f92672', '#fd971f'] }
+        ];
+
+        const navigation = [
+            { name: 'Home', id: 'home', title: 'Tejus Gupta — Software Engineer' },
+            { name: 'Philosophy', id: 'philosophy', title: 'Philosophy — Tejus Gupta' },
+            {
+                name: 'Selected Projects', id: 'projects', title: 'Projects — Tejus Gupta', subs: [
+                    { name: 'create-agentverse-agent', id: 'create-agentverse-agent', title: 'create-agentverse-agent — Tejus Gupta' },
+                    { name: 'Bhasha', id: 'bhasha', title: 'Bhasha — Tejus Gupta' },
+                    { name: 'PassCrypt', id: 'passcrypt', title: 'PassCrypt — Tejus Gupta' },
+                    { name: 'FlowNet', id: 'flownet', title: 'FlowNet — Tejus Gupta' },
+                    { name: 'uagents-composio-adapter', id: 'uagents-composio-adapter', title: 'uagents-composio-adapter — Tejus Gupta' }
+                ]
+            },
+            { name: 'How I Build', id: 'how-i-build', title: 'How I Build — Tejus Gupta' },
+            { name: 'Now', id: 'now', title: 'Now — Tejus Gupta' }
+        ];
+
+        // Flatten navigation for scroll spy
+        const allSections = [];
+        navigation.forEach(item => {
+            allSections.push({ id: item.id, title: item.title });
+            if (item.subs) {
+                item.subs.forEach(sub => allSections.push({ id: sub.id, title: sub.title }));
+            }
+        });
+
+        // Elements
+        const themeModal = document.getElementById('themeModal');
+        const navModal = document.getElementById('navModal');
+        const helpModal = document.getElementById('helpModal');
+        const themeBtn = document.getElementById('themeBtn');
+        const navBtn = document.getElementById('navBtn');
+        const helpBtn = document.getElementById('helpBtn');
+        const themeClose = document.getElementById('themeClose');
+        const navClose = document.getElementById('navClose');
+        const helpClose = document.getElementById('helpClose');
+        const themeGrid = document.getElementById('themeGrid');
+        const navList = document.getElementById('navList');
+        const toast = document.getElementById('toast');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+
+        // Navigation focus index
+        let navFocusIndex = -1;
+        let navItems = [];
+
+        // Toast function
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // Copy to clipboard function
+        function copyToClipboard(id, event) {
+            if (event) {
+                event.preventDefault();
+            }
+            const url = `${window.location.origin}${window.location.pathname}#${id}`;
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('URL copied to clipboard!');
+                history.pushState(null, '', `#${id}`);
+            });
+        }
+
+        // Copy website URL
+        function copyWebsiteUrl() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('URL copied to clipboard!');
+            });
+        }
+
+        function copyCleanUrl() {
+            const url = `${window.location.origin}${window.location.pathname}`;
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('Clean URL copied to clipboard!');
+            });
+        }
+
+        // Theme Functions
+        function renderThemes() {
+            const currentTheme = localStorage.getItem('theme') || defaultTheme;
+
+            themeGrid.innerHTML = themes.map(t => `
+                <div class="theme-card ${t.id === currentTheme ? 'active' : ''}" data-theme="${t.id}">
+                    <div class="theme-card-header">
+                        <span class="theme-emoji">${t.emoji}</span>
+                        <span class="theme-name">${t.name}</span>
+                    </div>
+                    <div class="theme-desc">${t.desc}</div>
+                    <div class="theme-colors">
+                        ${t.colors.map(c => `<div class="color-dot" style="background: ${c};"></div>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+
+            themeGrid.querySelectorAll('.theme-card').forEach(card => {
+                card.onclick = () => {
+                    const theme = card.dataset.theme;
+                    document.documentElement.setAttribute('data-theme', theme);
+                    localStorage.setItem('theme', theme);
+                    themeGrid.querySelectorAll('.theme-card').forEach(c => c.classList.remove('active'));
+                    card.classList.add('active');
+                };
+            });
+        }
+
+        function scrollToActiveTheme() {
+            const activeCard = themeGrid.querySelector('.theme-card.active');
+            if (activeCard) {
+                setTimeout(() => {
+                    activeCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
+        }
+
+        function randomTheme() {
+            const randomIndex = Math.floor(Math.random() * themes.length);
+            const theme = themes[randomIndex].id;
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            renderThemes();
+            scrollToActiveTheme();
+        }
+
+        // Navigation Functions
+        function renderNavigation() {
+            navList.innerHTML = navigation.map(item => `
+                <li class="nav-item" data-id="${item.id}">${item.name}</li>
+                ${item.subs ? item.subs.map(sub => `<li class="nav-item sub" data-id="${sub.id}">${sub.name}</li>`).join('') : ''}
+            `).join('');
+
+            navItems = Array.from(navList.querySelectorAll('.nav-item'));
+
+            navItems.forEach(item => {
+                item.onclick = () => {
+                    navigateToSection(item.dataset.id);
+                };
+            });
+        }
+
+        function navigateToSection(id) {
+            const section = allSections.find(s => s.id === id);
+            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+            history.pushState(null, '', `#${id}`);
+            if (section) {
+                document.title = section.title;
+            }
+            navModal.classList.remove('open');
+            navFocusIndex = -1;
+            updateNavFocus();
+        }
+
+        function updateNavFocus() {
+            navItems.forEach((item, index) => {
+                if (index === navFocusIndex) {
+                    item.classList.add('focused');
+                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    item.classList.remove('focused');
+                }
+            });
+        }
+
+        // Scroll spy for URL and title updates
+        function setupScrollSpy() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        const section = allSections.find(s => s.id === id);
+                        if (section && !isAnyModalOpen()) {
+                            history.replaceState(null, '', `#${id}`);
+                            document.title = section.title;
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            allSections.forEach(section => {
+                const element = document.getElementById(section.id);
+                if (element) {
+                    observer.observe(element);
+                }
+            });
+        }
+
+        // Modal Controls
+        function openModal(modal) {
+            closeAllModals();
+            modal.classList.add('open');
+            if (modal === themeModal) {
+                scrollToActiveTheme();
+            }
+            if (modal === navModal) {
+                navFocusIndex = -1;
+                updateNavFocus();
+            }
+        }
+
+        function closeModal(modal) {
+            modal.classList.remove('open');
+            navFocusIndex = -1;
+            updateNavFocus();
+        }
+
+        function isModalOpen(modal) {
+            return modal.classList.contains('open');
+        }
+
+        function isAnyModalOpen() {
+            return isModalOpen(themeModal) || isModalOpen(navModal) || isModalOpen(helpModal);
+        }
+
+        function toggleModal(modal) {
+            if (isModalOpen(modal)) {
+                closeModal(modal);
+            } else {
+                openModal(modal);
+            }
+        }
+
+        function closeAllModals() {
+            themeModal.classList.remove('open');
+            navModal.classList.remove('open');
+            helpModal.classList.remove('open');
+            navFocusIndex = -1;
+            updateNavFocus();
+        }
+
+        // Hamburger Menu Functions
+        function toggleHamburger() {
+            hamburgerBtn.classList.toggle('open');
+            hamburgerMenu.classList.toggle('open');
+        }
+
+        function closeHamburger() {
+            hamburgerBtn.classList.remove('open');
+            hamburgerMenu.classList.remove('open');
+        }
+
+        // Event Listeners
+        hamburgerBtn.onclick = toggleHamburger;
+
+        themeBtn.onclick = () => {
+            closeHamburger();
+            openModal(themeModal);
+        };
+        navBtn.onclick = () => {
+            closeHamburger();
+            openModal(navModal);
+        };
+        helpBtn.onclick = () => {
+            closeHamburger();
+            openModal(helpModal);
+        };
+
+        // Close hamburger when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburgerBtn.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+                closeHamburger();
+            }
+        });
+
+        themeClose.onclick = () => closeModal(themeModal);
+        navClose.onclick = () => closeModal(navModal);
+        helpClose.onclick = () => closeModal(helpModal);
+
+        themeModal.onclick = (e) => { if (e.target === themeModal) closeModal(themeModal); };
+        navModal.onclick = (e) => { if (e.target === navModal) closeModal(navModal); };
+        helpModal.onclick = (e) => { if (e.target === helpModal) closeModal(helpModal); };
+
+        // Keyboard Shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ignore if typing in input
+            if (e.target.tagName === 'INPUT') {
+                if (e.key === 'Escape') {
+                    e.target.blur();
+                    closeAllModals();
+                }
+                return;
+            }
+
+            const key = e.key.toLowerCase();
+
+            if (e.key === 'Escape') {
+                closeAllModals();
+                closeHamburger();
+            } else if (key === 't') {
+                e.preventDefault();
+                toggleModal(themeModal);
+            } else if (key === 'm') {
+                e.preventDefault();
+                toggleModal(navModal);
+            } else if (key === 'h') {
+                e.preventDefault();
+                toggleModal(helpModal);
+            } else if (key === 'r') {
+                e.preventDefault();
+                randomTheme();
+            } else if (key === 's') {
+                e.preventDefault();
+                copyCleanUrl();
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (isModalOpen(navModal)) {
+                    navFocusIndex = Math.min(navFocusIndex + 1, navItems.length - 1);
+                    updateNavFocus();
+                } else if (isModalOpen(themeModal)) {
+                    themeModal.querySelector('.modal-body').scrollBy({ top: 100, behavior: 'smooth' });
+                } else if (isModalOpen(helpModal)) {
+                    helpModal.querySelector('.modal-body').scrollBy({ top: 100, behavior: 'smooth' });
+                }
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (isModalOpen(navModal)) {
+                    navFocusIndex = Math.max(navFocusIndex - 1, 0);
+                    updateNavFocus();
+                } else if (isModalOpen(themeModal)) {
+                    themeModal.querySelector('.modal-body').scrollBy({ top: -100, behavior: 'smooth' });
+                } else if (isModalOpen(helpModal)) {
+                    helpModal.querySelector('.modal-body').scrollBy({ top: -100, behavior: 'smooth' });
+                }
+            } else if (e.key === 'Enter' && isModalOpen(navModal) && navFocusIndex >= 0) {
+                e.preventDefault();
+                const selectedItem = navItems[navFocusIndex];
+                if (selectedItem) {
+                    navigateToSection(selectedItem.dataset.id);
+                }
+            }
+        });
+
+        // Handle initial hash on page load
+        function handleInitialHash() {
+            const hash = window.location.hash.slice(1);
+            if (hash) {
+                const section = allSections.find(s => s.id === hash);
+                if (section) {
+                    setTimeout(() => {
+                        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+                        document.title = section.title;
+                    }, 100);
+                }
+            }
+        }
+
+        // Initialize
+        const savedTheme = localStorage.getItem('theme') || defaultTheme;
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        renderThemes();
+        renderNavigation();
+        setupScrollSpy();
+        handleInitialHash();
+    </script>
+</body>
+
+</html>

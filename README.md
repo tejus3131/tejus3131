@@ -1,65 +1,97 @@
-<h1 align="center">Hey 👋, I'm Tejus Gupta</h1>
+# Hey, I’m Tejus Gupta 👋
 
-<h3 align="center">AI Developer | Building Intelligent Agent Systems</h3>
-
----
-
-### 👨‍💻 About Me
-
-- 🔭 I’m currently working on **agent-based frameworks and integrations for autonomous networks at [Fetch.ai](https://fetch.ai)**  
-- 🌱 I’m currently learning **CosmWasm and advanced multi-agent coordination for decentralized applications**  
-- 👯 I’m looking to collaborate on **open-source projects around AI agents, automation, and Web3 infrastructure**  
-- 🤝 I’m looking for help with **large-scale distributed agent systems and blockchain interoperability**  
-- 💬 Ask me about **Python, Generative AI, Autonomous Agents, and the Agent Economy**  
-- 📫 Reach me at **[hello@tejusgupta.dev](mailto:hello@tejusgupta.dev)**  
-- ⚡ Fun fact: *I joined a hackathon “just for fun” — and it ended up shaping my entire career.*  
+**Software Engineer**  
+Focused on systems, developer tooling, and AI agents
 
 ---
 
-### 🌐 Find Me Online
+## About
 
-<p align="left">
-<a href="https://github.com/tejus3131" target="_blank"><img src="https://skillicons.dev/icons?i=github" height="40"/></a>
-<a href="https://dev.to/tejus3131" target="_blank"><img src="https://skillicons.dev/icons?i=devto" height="40"/></a>
-<a href="https://linkedin.com/in/tejus3131" target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" height="40"/></a>
-<a href="https://twitter.com/tejus3131" target="_blank"><img src="https://skillicons.dev/icons?i=twitter" height="40"/></a>
-</p>
+I’m a software engineer who enjoys building things and understanding how they work at a low level.
 
----
+I like breaking large systems into smaller, solvable problems and making them work reliably.  
+Most of my work revolves around **developer tooling, CLI applications, automation, and AI agent systems**.
 
-### 🧠 Tech Stack
+When I build, I value quality above everything — in code, in user experience, and in long-term maintainability.  
+I care deeply about clean setups, automation, and making things feel *done*, not just *working*.
 
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=python,fastapi,docker,postgres,redis,linux,aws,git,react,nextjs,tailwind,nodejs,ts,mongodb,flask,streamlit" />
-</p>
+I’m especially excited by recurring, real-world problems — the kind where writing a tool once can save hours every day.
 
 ---
 
-### 📊 GitHub Stats
+## Philosophy
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=tejus3131&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" width="49%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=tejus3131&theme=tokyonight&hide_border=true" alt="GitHub Streak" width="49%" />
-</p>
+> *Software development is an art that requires technical depth — not a stressful job, but a craft I genuinely enjoy practicing.*
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=tejus3131&show_icons=true&locale=en&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
-</p>
+I prefer strong fundamentals over shortcuts and clarity over cleverness.  
+Good tools should feel natural to use, predictable in behavior, and easy to maintain.
 
 ---
 
-### 📝 Articles & Projects
+## What I’m Working On
 
-- 🧠 Read my posts on **[Dev.to](https://dev.to/tejus3131)**  
-- 💼 Explore my portfolio at **[tejus3131.github.io](https://tejus3131.github.io)**  
-- 📄 Check out my resume [here](https://drive.google.com/file/d/1e8cKv0upY1-3YTM6fVrKNIQN8Q9ta6su/view?usp=sharing)
-
----
-
-### 💬 Quote I Live By
-> *"Build things that make intelligence useful — not just impressive."*  
+- Building **production-grade CLI tools** and **AI agent systems**
+- Exploring **networking concepts** for tooling: custom protocols, relay servers, and peer-to-peer communication
+- Improving automation and ergonomics in my Linux development environment
 
 ---
 
-⭐ **If you like what I do, consider giving a star to my repositories or connecting with me on [LinkedIn](https://linkedin.com/in/tejus3131)!**
+## How I Build
 
+For any new project, I start with a solid foundation before writing application logic:
+
+- CI/CD
+- Testing
+- Linting & formatting
+- Pre-commit hooks
+
+Once the foundation is in place, I focus on:
+1. Correctness  
+2. Performance  
+3. Readability  
+4. Documentation  
+
+User experience is non-negotiable — every tool I build should feel easy and natural to use.
+
+---
+
+## Selected Work
+
+I work on open-source projects around:
+- AI agents and agent frameworks
+- Developer tooling and automation
+- CLI applications
+- Systems-oriented experiments
+
+Pinned repositories showcase the projects I’m most proud of.
+
+---
+
+## Current Role
+
+**AI Engineer at Fetch.ai**
+
+Working on AI agents using frameworks such as:
+- Google ADK
+- OpenAI Agents SDK
+- LangChain
+- CrewAI
+
+---
+
+## Online
+
+- **GitHub:** https://github.com/tejus3131  
+- **LinkedIn:** https://www.linkedin.com/in/tejus3131/  
+- **X (Twitter):** https://x.com/tejus3131  
+- **Blog:** https://dev.to/tejus3131  
+
+---
+
+## Contact
+
+📫 **hello@tejusgupta.dev**
+
+---
+
+*Everything I build is not just technology — it’s something I craft.*
