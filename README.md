@@ -90,7 +90,7 @@ Working on AI agents using frameworks such as:
 
 ## Contact
 
-📫 **hello@tejusgupta.dev**
+> **hello@tejusgupta.dev**
 
 ---
 
