@@ -237,6 +237,7 @@
             scroll-behavior: smooth;
             scrollbar-width: none;
             -ms-overflow-style: none;
+            scroll-snap-type: y mandatory;
         }
 
         html::-webkit-scrollbar {
@@ -268,10 +269,17 @@
         }
 
         section {
-            margin-bottom: 200px;
+            min-height: 100vh;
+            margin-bottom: 0;
+            padding: 80px 0;
             opacity: 0;
             animation: fadeIn 0.8s ease-out forwards;
-            scroll-margin-top: 40px;
+            scroll-margin-top: 0;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         @keyframes fadeIn {
@@ -305,8 +313,14 @@
         }
 
         .hero {
-            padding-top: 140px;
-            margin-bottom: 200px;
+            padding-top: 0;
+            margin-bottom: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
         }
 
         .hero h1 {
@@ -362,7 +376,8 @@
         .section-heading {
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
+            width: 100%;
             cursor: pointer;
             text-decoration: none;
             color: inherit;
@@ -389,6 +404,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-left: auto;
         }
 
         .share-btn:hover {
@@ -425,9 +441,116 @@
             line-height: 1.8;
         }
 
+        /* Projects section container - doesn't snap itself, children do */
+        .projects {
+            min-height: auto;
+            padding: 0;
+            scroll-snap-align: none;
+            display: block;
+        }
+
+        /* Projects section header - snaps independently */
+        .projects-header {
+            min-height: 100vh;
+            margin-bottom: 0;
+            padding: 80px 0;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .projects-header h2 {
+            font-size: 32px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 60px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Project preview cards grid */
+        .project-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            padding: 16px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            border-left: 2px solid var(--accent);
+            padding-left: 19px;
+        }
+
+        .project-card-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .project-card-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--accent);
+            min-width: 200px;
+        }
+
+        .project-card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .project-card-tech {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            opacity: 0.7;
+            white-space: nowrap;
+        }
+
+        .project-card-arrow {
+            font-size: 14px;
+            color: var(--text-secondary);
+            opacity: 0;
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover .project-card-arrow {
+            opacity: 1;
+            color: var(--accent);
+        }
+
         .project {
-            margin-bottom: 100px;
-            scroll-margin-top: 40px;
+            min-height: 100vh;
+            margin-bottom: 0;
+            padding: 80px 0;
+            scroll-margin-top: 0;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .project h3 {
@@ -440,7 +563,8 @@
         .project-heading {
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
+            width: 100%;
             cursor: pointer;
             text-decoration: none;
             color: inherit;
@@ -569,8 +693,14 @@
         }
 
         footer {
-            padding: 100px 0 140px;
+            min-height: 100vh;
+            padding: 80px 0;
             border-top: 1px solid var(--border);
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         footer .contact a {
@@ -971,7 +1101,113 @@
             color: var(--text-secondary);
         }
 
+        /* Scroll Spy Indicator */
+        .scroll-spy {
+            position: fixed;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 100;
+        }
+
+        .scroll-spy-item {
+            height: 2px;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            border-radius: 1px;
+            opacity: 0.5;
+        }
+
+        /* Main section - bigger dash */
+        .scroll-spy-item.main {
+            width: 16px;
+        }
+
+        /* Sub section - smaller dash */
+        .scroll-spy-item.sub {
+            width: 10px;
+            margin-left: 6px;
+        }
+
+        .scroll-spy-item:hover {
+            opacity: 1;
+            background: var(--text-secondary);
+        }
+
+        .scroll-spy-item.active {
+            background: var(--accent);
+            opacity: 1;
+        }
+
+        .scroll-spy-item.active.main {
+            width: 20px;
+        }
+
+        .scroll-spy-item.active.sub {
+            width: 14px;
+        }
+
+        .scroll-spy-item::before {
+            content: attr(data-label);
+            position: absolute;
+            right: calc(100% + 12px);
+            top: 50%;
+            transform: translateY(-50%);
+            white-space: nowrap;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s ease;
+        }
+
+        .scroll-spy-item:hover::before {
+            opacity: 1;
+        }
+
+        /* Theme card focus state for keyboard navigation */
+        .theme-card.focused {
+            border-color: var(--accent);
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Current theme indicator */
+        .current-theme-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .current-theme-indicator span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--accent);
+        }
+
+        .current-theme-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
         @media (max-width: 640px) {
+            .scroll-spy {
+                display: none;
+            }
+
             .hamburger-container {
                 top: 24px;
                 right: 24px;
@@ -988,8 +1224,8 @@
             }
 
             .hero {
-                padding-top: 100px;
-                margin-bottom: 140px;
+                padding-top: 0;
+                margin-bottom: 0;
             }
 
             .hero h1 {
@@ -1011,11 +1247,46 @@
             }
 
             section {
-                margin-bottom: 140px;
+                padding: 60px 0;
             }
 
             .project {
-                margin-bottom: 80px;
+                padding: 60px 0;
+            }
+
+            .projects-header {
+                padding: 60px 0;
+            }
+
+            .project-card {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+
+            .project-card-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                width: 100%;
+            }
+
+            .project-card-title {
+                min-width: auto;
+                text-align: left;
+            }
+
+            .project-card-desc {
+                text-align: left;
+            }
+
+            .project-card-tech {
+                margin-top: 4px;
+                text-align: left;
+            }
+
+            .project-card-arrow {
+                display: none;
             }
 
             .project h3 {
@@ -1023,7 +1294,7 @@
             }
 
             footer {
-                padding: 80px 0 100px;
+                padding: 60px 0;
             }
 
             footer .contact a {
@@ -1052,7 +1323,7 @@
             <button class="menu-item" id="navBtn">
                 <span class="menu-icon">📑</span>
                 <span class="menu-text">Menu</span>
-                <span class="menu-shortcut">M</span>
+                <span class="menu-shortcut">N</span>
             </button>
             <button class="menu-item" id="themeBtn">
                 <span class="menu-icon">🎨</span>
@@ -1067,12 +1338,19 @@
         </div>
     </div>
 
+    <!-- Scroll Spy -->
+    <div class="scroll-spy" id="scrollSpy"></div>
+
     <!-- Theme Modal -->
     <div class="modal-overlay" id="themeModal">
         <div class="modal">
             <button class="close-btn" id="themeClose">×</button>
             <div class="modal-header">
                 <h3>Choose Your Theme</h3>
+                <div class="current-theme-indicator" id="currentThemeIndicator">
+                    <span class="current-theme-label">Active:</span>
+                    <span id="currentThemeName">Loading...</span>
+                </div>
             </div>
             <div class="modal-body">
                 <div class="theme-grid" id="themeGrid"></div>
@@ -1109,10 +1387,6 @@
                             <span class="help-desc">Open this help menu</span>
                         </div>
                         <div class="help-row">
-                            <span class="help-kbd">S</span>
-                            <span class="help-desc">Copy website URL to clipboard</span>
-                        </div>
-                        <div class="help-row">
                             <span class="help-kbd">Esc</span>
                             <span class="help-desc">Close any open modal</span>
                         </div>
@@ -1120,13 +1394,13 @@
                     <div class="help-section">
                         <h4>Navigation</h4>
                         <div class="help-row">
-                            <span class="help-kbd">M</span>
+                            <span class="help-kbd">N</span>
                             <span class="help-desc">Open navigation menu</span>
                         </div>
                         <div class="help-row">
                             <span class="help-kbd">↑</span>
                             <span class="help-kbd">↓</span>
-                            <span class="help-desc">Navigate menu items</span>
+                            <span class="help-desc">Navigate between sections (or menu items when modal open)</span>
                         </div>
                         <div class="help-row">
                             <span class="help-kbd">Enter</span>
@@ -1140,13 +1414,19 @@
                             <span class="help-desc">Open theme picker</span>
                         </div>
                         <div class="help-row">
-                            <span class="help-kbd">R</span>
+                            <span class="help-kbd">M</span>
                             <span class="help-desc">Select random theme</span>
                         </div>
+                    </div>
+                    <div class="help-section">
+                        <h4>Sharing</h4>
                         <div class="help-row">
-                            <span class="help-kbd">↑</span>
-                            <span class="help-kbd">↓</span>
-                            <span class="help-desc">Scroll through themes</span>
+                            <span class="help-kbd">W</span>
+                            <span class="help-desc">Copy website URL</span>
+                        </div>
+                        <div class="help-row">
+                            <span class="help-kbd">C</span>
+                            <span class="help-desc">Copy active section URL</span>
                         </div>
                     </div>
                     <div class="help-tips">
@@ -1177,9 +1457,9 @@
 
         <section class="philosophy" id="philosophy">
             <h2>
-                <a href="#philosophy" class="section-heading" onclick="copyToClipboard('philosophy', event)">
+                <a href="#philosophy" class="section-heading">
                     Philosophy
-                    <button class="share-btn" aria-label="Copy link">🔗</button>
+                    <button class="share-btn" aria-label="Copy link" onclick="copySectionURL('philosophy', 'Philosophy', event)">🔗</button>
                 </a>
             </h2>
             <p>I enjoy building things and understanding how they work at a low level. I like breaking large systems
@@ -1192,19 +1472,62 @@
                 every day.</p>
         </section>
 
-        <section class="projects" id="projects">
-            <h2>
-                <a href="#projects" class="section-heading" onclick="copyToClipboard('projects', event)">
-                    Selected Projects
-                    <button class="share-btn" aria-label="Copy link">🔗</button>
-                </a>
-            </h2>
+        <section class="projects" id="my-work">
+            <div class="projects-header">
+                <h2>
+                    <a href="#my-work" class="section-heading">
+                        My Work
+                        <button class="share-btn" aria-label="Copy link" onclick="copySectionURL('my-work', 'My Work', event)">🔗</button>
+                    </a>
+                </h2>
+                <div class="project-cards">
+                    <a class="project-card" onclick="navigateToSection('create-agentverse-agent')">
+                        <div class="project-card-content">
+                            <div class="project-card-title">create-agentverse-agent</div>
+                            <div class="project-card-desc">CLI tool for scaffolding production-ready uAgents projects</div>
+                        </div>
+                        <div class="project-card-tech">Python · CLI · Docker</div>
+                        <div class="project-card-arrow">→</div>
+                    </a>
+                    <a class="project-card" onclick="navigateToSection('bhasha')">
+                        <div class="project-card-content">
+                            <div class="project-card-title">Bhasha</div>
+                            <div class="project-card-desc">Toy programming language interpreter with Hindi keywords</div>
+                        </div>
+                        <div class="project-card-tech">Rust</div>
+                        <div class="project-card-arrow">→</div>
+                    </a>
+                    <a class="project-card" onclick="navigateToSection('passcrypt')">
+                        <div class="project-card-content">
+                            <div class="project-card-title">PassCrypt</div>
+                            <div class="project-card-desc">Secure CLI-based password manager</div>
+                        </div>
+                        <div class="project-card-tech">Python · Cryptography</div>
+                        <div class="project-card-arrow">→</div>
+                    </a>
+                    <a class="project-card" onclick="navigateToSection('flownet')">
+                        <div class="project-card-content">
+                            <div class="project-card-title">FlowNet</div>
+                            <div class="project-card-desc">Decentralized delivery network with AI agents</div>
+                        </div>
+                        <div class="project-card-tech">Python · AI · Async</div>
+                        <div class="project-card-arrow">→</div>
+                    </a>
+                    <a class="project-card" onclick="navigateToSection('uagents-composio-adapter')">
+                        <div class="project-card-content">
+                            <div class="project-card-title">uagents-composio-adapter</div>
+                            <div class="project-card-desc">Adapter connecting uAgents with Composio and LangChain</div>
+                        </div>
+                        <div class="project-card-tech">Python · LangChain</div>
+                        <div class="project-card-arrow">→</div>
+                    </a>
+                </div>
+            </div>
             <div class="project" id="create-agentverse-agent">
                 <h3>
-                    <a href="#create-agentverse-agent" class="project-heading"
-                        onclick="copyToClipboard('create-agentverse-agent', event)">
+                    <a href="#create-agentverse-agent" class="project-heading">
                         create-agentverse-agent
-                        <button class="share-btn" aria-label="Copy link">🔗</button>
+                        <button class="share-btn" aria-label="Copy link" onclick="copySectionURL('create-agentverse-agent', 'create-agentverse-agent', event)">🔗</button>
                     </a>
                 </h3>
                 <div class="tagline">A CLI tool that scaffolds production-ready uAgents projects with
@@ -1232,9 +1555,9 @@
 
             <div class="project" id="bhasha">
                 <h3>
-                    <a href="#bhasha" class="project-heading" onclick="copyToClipboard('bhasha', event)">
+                    <a href="#bhasha" class="project-heading">
                         Bhasha
-                        <button class="share-btn" aria-label="Copy link">🔗</button>
+                        <button class="share-btn" aria-label="Copy link" onclick="copySectionURL('bhasha', 'Bhasha', event)">🔗</button>
                     </a>
                 </h3>
                 <div class="tagline">A toy programming language interpreter using Hindi keywords.</div>
@@ -1259,9 +1582,9 @@
 
             <div class="project" id="passcrypt">
                 <h3>
-                    <a href="#passcrypt" class="project-heading" onclick="copyToClipboard('passcrypt', event)">
+                    <a href="#passcrypt" class="project-heading">
                         PassCrypt
-                        <button class="share-btn" aria-label="Copy link">🔗</button>
+                        <button class="share-btn" aria-label="Copy link" onclick="copySectionURL('passcrypt', 'PassCrypt', event)">🔗</button>
                     </a>
                 </h3>
                 <div class="tagline">A secure, CLI-based password manager.</div>
@@ -1287,9 +1610,9 @@
 
             <div class="project" id="flownet">
                 <h3>
-                    <a href="#flownet" class="project-heading" onclick="copyToClipboard('flownet', event)">
+                    <a href="#flownet" class="project-heading">
                         FlowNet
-                        <button class="share-btn" aria-label="Copy link">🔗</button>
+                        <button class="share-btn" aria-label="Copy link" onclick="copySectionURL('flownet', 'FlowNet', event)">🔗</button>
                     </a>
                 </h3>
                 <div class="tagline">A decentralized delivery network powered by autonomous AI agents.</div>
@@ -1315,10 +1638,9 @@
 
             <div class="project" id="uagents-composio-adapter">
                 <h3>
-                    <a href="#uagents-composio-adapter" class="project-heading"
-                        onclick="copyToClipboard('uagents-composio-adapter', event)">
+                    <a href="#uagents-composio-adapter" class="project-heading">
                         uagents-composio-adapter
-                        <button class="share-btn" aria-label="Copy link">🔗</button>
+                        <button class="share-btn" aria-label="Copy link" onclick="copySectionURL('uagents-composio-adapter', 'uagents-composio-adapter', event)">🔗</button>
                     </a>
                 </h3>
                 <div class="tagline">A production-ready adapter connecting uAgents with Composio and LangChain
@@ -1346,9 +1668,9 @@
 
         <section class="build-section" id="how-i-build">
             <h2>
-                <a href="#how-i-build" class="section-heading" onclick="copyToClipboard('how-i-build', event)">
+                <a href="#how-i-build" class="section-heading">
                     How I Build
-                    <button class="share-btn" aria-label="Copy link">🔗</button>
+                    <button class="share-btn" aria-label="Copy link" onclick="copySectionURL('how-i-build', 'How I Build', event)">🔗</button>
                 </a>
             </h2>
             <p>For any new project, I start with a solid foundation: CI/CD, testing, linting, formatting, and pre-commit
@@ -1366,9 +1688,9 @@
 
         <section class="now-section" id="now">
             <h2>
-                <a href="#now" class="section-heading" onclick="copyToClipboard('now', event)">
+                <a href="#now" class="section-heading">
                     Now
-                    <button class="share-btn" aria-label="Copy link">🔗</button>
+                    <button class="share-btn" aria-label="Copy link" onclick="copySectionURL('now', 'Now', event)">🔗</button>
                 </a>
             </h2>
             <div class="now-item"><strong>Currently learning</strong>
@@ -1421,7 +1743,7 @@
             { name: 'Home', id: 'home', title: 'Tejus Gupta — Software Engineer' },
             { name: 'Philosophy', id: 'philosophy', title: 'Philosophy — Tejus Gupta' },
             {
-                name: 'Selected Projects', id: 'projects', title: 'Projects — Tejus Gupta', subs: [
+                name: 'My Work', id: 'my-work', title: 'My Work — Tejus Gupta', subs: [
                     { name: 'create-agentverse-agent', id: 'create-agentverse-agent', title: 'create-agentverse-agent — Tejus Gupta' },
                     { name: 'Bhasha', id: 'bhasha', title: 'Bhasha — Tejus Gupta' },
                     { name: 'PassCrypt', id: 'passcrypt', title: 'PassCrypt — Tejus Gupta' },
@@ -1457,10 +1779,19 @@
         const toast = document.getElementById('toast');
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const scrollSpy = document.getElementById('scrollSpy');
+        const currentThemeName = document.getElementById('currentThemeName');
 
         // Navigation focus index
         let navFocusIndex = -1;
         let navItems = [];
+
+        // Theme focus index for keyboard navigation
+        let themeFocusIndex = -1;
+        let themeCards = [];
+
+        // Current active section for scroll spy
+        let currentActiveSection = 'home';
 
         // Toast function
         function showToast(message) {
@@ -1471,39 +1802,48 @@
             }, 2000);
         }
 
-        // Copy to clipboard function
-        function copyToClipboard(id, event) {
+        // Copy section URL
+        function copySectionURL(id, section, event) {
             if (event) {
                 event.preventDefault();
             }
             const url = `${window.location.origin}${window.location.pathname}#${id}`;
             navigator.clipboard.writeText(url).then(() => {
-                showToast('URL copied to clipboard!');
+                showToast(`URL for ${section} copied to clipboard!`);
                 history.pushState(null, '', `#${id}`);
             });
         }
 
-        // Copy website URL
-        function copyWebsiteUrl() {
-            const url = window.location.href;
+        // Copy Active Section URL
+        function copyActiveSectionURL() {
+            const url = `${window.location.origin}${window.location.pathname}#${currentActiveSection}`;
+            const sectionData = allSections.find(s => s.id === currentActiveSection);
+            const sectionName = sectionData ? sectionData.title.split(' — ')[0] : currentActiveSection;
             navigator.clipboard.writeText(url).then(() => {
-                showToast('URL copied to clipboard!');
+                showToast(`URL for ${sectionName} copied to clipboard!`);
             });
         }
 
-        function copyCleanUrl() {
+        // Copy website URL
+        function copyWebsiteURL() {
             const url = `${window.location.origin}${window.location.pathname}`;
             navigator.clipboard.writeText(url).then(() => {
-                showToast('Clean URL copied to clipboard!');
+                showToast(`Portfolio URL copied to clipboard!`);
             });
         }
 
         // Theme Functions
         function renderThemes() {
             const currentTheme = localStorage.getItem('theme') || defaultTheme;
+            const activeThemeData = themes.find(t => t.id === currentTheme);
+            
+            // Update current theme indicator
+            if (currentThemeName && activeThemeData) {
+                currentThemeName.textContent = `${activeThemeData.emoji} ${activeThemeData.name}`;
+            }
 
             themeGrid.innerHTML = themes.map(t => `
-                <div class="theme-card ${t.id === currentTheme ? 'active' : ''}" data-theme="${t.id}">
+                <div class="theme-card ${t.id === currentTheme ? 'active' : ''}" data-theme="${t.id}" tabindex="0">
                     <div class="theme-card-header">
                         <span class="theme-emoji">${t.emoji}</span>
                         <span class="theme-name">${t.name}</span>
@@ -1515,18 +1855,39 @@
                 </div>
             `).join('');
 
-            themeGrid.querySelectorAll('.theme-card').forEach(card => {
-                card.onclick = () => {
-                    const theme = card.dataset.theme;
-                    document.documentElement.setAttribute('data-theme', theme);
-                    localStorage.setItem('theme', theme);
-                    themeGrid.querySelectorAll('.theme-card').forEach(c => c.classList.remove('active'));
-                    card.classList.add('active');
-                };
+            themeCards = Array.from(themeGrid.querySelectorAll('.theme-card'));
+
+            themeCards.forEach(card => {
+                card.onclick = () => selectTheme(card.dataset.theme);
             });
         }
 
+        function selectTheme(themeId) {
+            document.documentElement.setAttribute('data-theme', themeId);
+            localStorage.setItem('theme', themeId);
+            renderThemes();
+            updateThemeFocus();
+        }
+
+        function updateThemeFocus() {
+            themeCards.forEach((card, index) => {
+                if (index === themeFocusIndex) {
+                    card.classList.add('focused');
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    card.classList.remove('focused');
+                }
+            });
+        }
+
+        function getActiveThemeIndex() {
+            const currentTheme = localStorage.getItem('theme') || defaultTheme;
+            return themes.findIndex(t => t.id === currentTheme);
+        }
+
         function scrollToActiveTheme() {
+            themeFocusIndex = getActiveThemeIndex();
+            updateThemeFocus();
             const activeCard = themeGrid.querySelector('.theme-card.active');
             if (activeCard) {
                 setTimeout(() => {
@@ -1538,10 +1899,44 @@
         function randomTheme() {
             const randomIndex = Math.floor(Math.random() * themes.length);
             const theme = themes[randomIndex].id;
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            renderThemes();
+            selectTheme(theme);
+            themeFocusIndex = randomIndex;
+            updateThemeFocus();
             scrollToActiveTheme();
+        }
+
+        // Scroll Spy Functions
+        function renderScrollSpy() {
+            let scrollSpyHTML = '';
+            
+            navigation.forEach(item => {
+                scrollSpyHTML += `<div class="scroll-spy-item main" data-id="${item.id}" data-label="${item.name}"></div>`;
+                if (item.subs) {
+                    item.subs.forEach(sub => {
+                        scrollSpyHTML += `<div class="scroll-spy-item sub" data-id="${sub.id}" data-label="${sub.name}"></div>`;
+                    });
+                }
+            });
+            
+            scrollSpy.innerHTML = scrollSpyHTML;
+
+            scrollSpy.querySelectorAll('.scroll-spy-item').forEach(item => {
+                item.onclick = () => {
+                    navigateToSection(item.dataset.id);
+                };
+            });
+
+            updateScrollSpyActive();
+        }
+
+        function updateScrollSpyActive() {
+            scrollSpy.querySelectorAll('.scroll-spy-item').forEach(item => {
+                if (item.dataset.id === currentActiveSection) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
         }
 
         // Navigation Functions
@@ -1560,13 +1955,24 @@
             });
         }
 
+        function getActiveNavIndex() {
+            return navItems.findIndex(item => item.dataset.id === currentActiveSection);
+        }
+
         function navigateToSection(id) {
             const section = allSections.find(s => s.id === id);
             document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-            history.pushState(null, '', `#${id}`);
+            // Use clean URL for home, hash for other sections
+            if (id === 'home') {
+                history.pushState(null, '', window.location.pathname);
+            } else {
+                history.pushState(null, '', `#${id}`);
+            }
             if (section) {
                 document.title = section.title;
             }
+            currentActiveSection = id;
+            updateScrollSpyActive();
             navModal.classList.remove('open');
             navFocusIndex = -1;
             updateNavFocus();
@@ -1597,8 +2003,17 @@
                         const id = entry.target.id;
                         const section = allSections.find(s => s.id === id);
                         if (section && !isAnyModalOpen()) {
-                            history.replaceState(null, '', `#${id}`);
+                            // Use clean URL for home, hash for other sections
+                            if (id === 'home') {
+                                history.replaceState(null, '', window.location.pathname);
+                            } else {
+                                history.replaceState(null, '', `#${id}`);
+                            }
                             document.title = section.title;
+                            
+                            // Update current active section (including subsections)
+                            currentActiveSection = id;
+                            updateScrollSpyActive();
                         }
                     }
                 });
@@ -1617,10 +2032,13 @@
             closeAllModals();
             modal.classList.add('open');
             if (modal === themeModal) {
+                themeFocusIndex = getActiveThemeIndex();
+                updateThemeFocus();
                 scrollToActiveTheme();
             }
             if (modal === navModal) {
-                navFocusIndex = -1;
+                // Pre-select active section in navigation
+                navFocusIndex = getActiveNavIndex();
                 updateNavFocus();
             }
         }
@@ -1716,27 +2134,38 @@
             } else if (key === 't') {
                 e.preventDefault();
                 toggleModal(themeModal);
-            } else if (key === 'm') {
+            } else if (key === 'n') {
                 e.preventDefault();
                 toggleModal(navModal);
             } else if (key === 'h') {
                 e.preventDefault();
                 toggleModal(helpModal);
-            } else if (key === 'r') {
+            } else if (key === 'm') {
                 e.preventDefault();
                 randomTheme();
-            } else if (key === 's') {
+            } else if (key === 'w') {
                 e.preventDefault();
-                copyCleanUrl();
+                copyWebsiteURL();
+            } else if (key === 'c') {
+                e.preventDefault();
+                if (currentActiveSection === 'home') {
+                    copyWebsiteURL();
+                } else {
+                    copyActiveSectionURL();
+                }
             } else if (e.key === 'ArrowDown') {
                 e.preventDefault();
                 if (isModalOpen(navModal)) {
                     navFocusIndex = Math.min(navFocusIndex + 1, navItems.length - 1);
                     updateNavFocus();
                 } else if (isModalOpen(themeModal)) {
-                    themeModal.querySelector('.modal-body').scrollBy({ top: 100, behavior: 'smooth' });
+                    themeFocusIndex = Math.min(themeFocusIndex + 1, themeCards.length - 1);
+                    updateThemeFocus();
                 } else if (isModalOpen(helpModal)) {
                     helpModal.querySelector('.modal-body').scrollBy({ top: 100, behavior: 'smooth' });
+                } else {
+                    // Navigate to next section
+                    navigateToNextSection();
                 }
             } else if (e.key === 'ArrowUp') {
                 e.preventDefault();
@@ -1744,18 +2173,50 @@
                     navFocusIndex = Math.max(navFocusIndex - 1, 0);
                     updateNavFocus();
                 } else if (isModalOpen(themeModal)) {
-                    themeModal.querySelector('.modal-body').scrollBy({ top: -100, behavior: 'smooth' });
+                    themeFocusIndex = Math.max(themeFocusIndex - 1, 0);
+                    updateThemeFocus();
                 } else if (isModalOpen(helpModal)) {
                     helpModal.querySelector('.modal-body').scrollBy({ top: -100, behavior: 'smooth' });
+                } else {
+                    // Navigate to previous section
+                    navigateToPrevSection();
                 }
-            } else if (e.key === 'Enter' && isModalOpen(navModal) && navFocusIndex >= 0) {
+            } else if (e.key === 'Enter') {
                 e.preventDefault();
-                const selectedItem = navItems[navFocusIndex];
-                if (selectedItem) {
-                    navigateToSection(selectedItem.dataset.id);
+                if (isModalOpen(navModal) && navFocusIndex >= 0) {
+                    const selectedItem = navItems[navFocusIndex];
+                    if (selectedItem) {
+                        navigateToSection(selectedItem.dataset.id);
+                    }
+                } else if (isModalOpen(themeModal) && themeFocusIndex >= 0) {
+                    const selectedTheme = themeCards[themeFocusIndex];
+                    if (selectedTheme) {
+                        selectTheme(selectedTheme.dataset.theme);
+                    }
                 }
             }
         });
+
+        // Section navigation with arrow keys
+        function getCurrentSectionIndex() {
+            return allSections.findIndex(s => s.id === currentActiveSection);
+        }
+
+        function navigateToNextSection() {
+            const currentIndex = getCurrentSectionIndex();
+            if (currentIndex < allSections.length - 1) {
+                const nextSection = allSections[currentIndex + 1];
+                navigateToSection(nextSection.id);
+            }
+        }
+
+        function navigateToPrevSection() {
+            const currentIndex = getCurrentSectionIndex();
+            if (currentIndex > 0) {
+                const prevSection = allSections[currentIndex - 1];
+                navigateToSection(prevSection.id);
+            }
+        }
 
         // Handle initial hash on page load
         function handleInitialHash() {
@@ -1776,6 +2237,7 @@
         document.documentElement.setAttribute('data-theme', savedTheme);
         renderThemes();
         renderNavigation();
+        renderScrollSpy();
         setupScrollSpy();
         handleInitialHash();
     </script>
