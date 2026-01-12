@@ -1388,6 +1388,8 @@
                         </div>
                         <div class="help-row">
                             <span class="help-kbd">Esc</span>
+                            <span class="help-desc">or</span>
+                            <span class="help-kbd">Q</span>
                             <span class="help-desc">Close any open modal</span>
                         </div>
                     </div>
@@ -1707,7 +1709,7 @@
             </div>
         </section>
 
-        <footer>
+        <footer id="contact">
             <div class="contact"><a href="mailto:hello@tejusgupta.dev">hello@tejusgupta.dev</a></div>
             <div class="signoff">Everything I build is not just technology — it's something I craft.</div>
         </footer>
@@ -1752,7 +1754,8 @@
                 ]
             },
             { name: 'How I Build', id: 'how-i-build', title: 'How I Build — Tejus Gupta' },
-            { name: 'Now', id: 'now', title: 'Now — Tejus Gupta' }
+            { name: 'Now', id: 'now', title: 'Now — Tejus Gupta' },
+            { name: 'Contact', id: 'contact', title: 'Contact — Tejus Gupta' }
         ];
 
         // Flatten navigation for scroll spy
@@ -2128,7 +2131,7 @@
 
             const key = e.key.toLowerCase();
 
-            if (e.key === 'Escape') {
+            if (e.key === 'Escape' || e.key === 'q') {
                 closeAllModals();
                 closeHamburger();
             } else if (key === 't') {
